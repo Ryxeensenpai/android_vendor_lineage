@@ -280,6 +280,13 @@ endif
 # Audio files
 $(call inherit-product, vendor/lineage/audio/audio.mk)
 
+# Google Apps
+ifeq ($(WITH_GAPPS),true)
+$(call inherit-product, vendor/gapps/arm64/arm64-vendor.mk)
+PRODUCT_PACKAGE_OVERLAYS += \
+    vendor/lineage/overlay/gapps
+endif
+
 # SetupWizard
 PRODUCT_PRODUCT_PROPERTIES += \
     setupwizard.theme=glif_v4 \
